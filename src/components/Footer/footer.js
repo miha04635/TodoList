@@ -1,12 +1,13 @@
-import { Component } from "react";
-import TasksFilter from "../TasksFilter/tasksFilter";
+import { Component } from 'react'
+
+import TasksFilter from '../TasksFilter/tasksFilter'
 
 export default class Footer extends Component {
   render() {
-    const { doneCount, delList, filter, onFilterChange } = this.props;
+    const { doneCount, delList, filter, onFilterChange } = this.props
 
-    const Count = doneCount.filter((el) => el.done).length;
-    const todoCount = doneCount.length - Count;
+    const count = doneCount.filter(el => el.done).length
+    const todoCount = doneCount.length - count
     return (
       <footer className="footer">
         <span className="todo-count">{todoCount} items left</span>
@@ -15,6 +16,6 @@ export default class Footer extends Component {
           Clear completed
         </button>
       </footer>
-    );
+    )
   }
 }
