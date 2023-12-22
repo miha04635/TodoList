@@ -14,8 +14,8 @@ export default class App extends Component {
     filter: 'all',
   }
 
-  filter(items) {
-    switch (this.filter) {
+  filter(items, filter) {
+    switch (filter) {
       case 'all':
         return items
       case 'Active':
