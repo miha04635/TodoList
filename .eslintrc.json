@@ -23,6 +23,7 @@
 
   "plugins": ["react", "prettier", "import"],
   "rules": {
+    "class-methods-use-this": "off",
     "no-plusplus": 0,
     "indent": ["error"],
     "prettier/prettier": "error",
