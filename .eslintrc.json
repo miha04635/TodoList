@@ -1,38 +1,30 @@
 {
   "env": {
     "browser": true,
+    "commonjs": true,
     "es2021": true
   },
-
   "ignorePatterns": ["node_modules", "dist", "build"],
   "extends": [
+    "airbnb-base",
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:prettier/recommended",
     "plugin:import/errors",
     "plugin:import/warnings"
   ],
-
   "parserOptions": {
+    "ecmaVersion": "latest",
     "ecmaFeatures": {
       "jsx": true
     },
-    "babelOption": {
-      "presets": ["@babel/preset-react"]
-    },
-    "ecmaVersion": 12,
     "sourceType": "module"
   },
+
   "plugins": ["react", "prettier", "import"],
   "rules": {
-    "no-console": 1,
-    "import/named": 0,
-    "import/no-named-as-default": 0,
-    "import/no-named-as-default-member": 0,
-    "import/namespace": 0,
-    "import/default": 0,
-    "import/export": 0,
-    "indent": ["error", 2],
+    "no-plusplus": 0,
+    "indent": ["error"],
     "prettier/prettier": "error",
     "linebreak-style": [0, "unix"],
     "quotes": ["error", "single"],
@@ -41,7 +33,6 @@
     "react/prop-types": 0,
     "import/no-unresolved": [2, { "caseSensitive": false }],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-
     "import/order": [
       2,
       {
@@ -51,9 +42,6 @@
     ]
   },
   "settings": {
-    "react": {
-      "version": "detect"
-    },
     "import/resolver": {
       "node": {
         "extensions": [".js", ".jsx", ".ts", ".tsx"],

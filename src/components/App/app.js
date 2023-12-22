@@ -1,18 +1,21 @@
-import Footer from '../Footer/footer.js'
-import NewTaskForm from '../NewTaskForm/newTaskForm.js'
-import TaskList from '../TaskList/taskList.js'
-import './index.css'
 import { Component } from 'react'
+
+import Footer from '../Footer/footer'
+import NewTaskForm from '../NewTaskForm/newTaskForm'
+import TaskList from '../TaskList/taskList'
+
+import './index.css'
 
 export default class App extends Component {
   maxId = 1
+
   state = {
     todoData: [],
     filter: 'all',
   }
 
-  filter(items, filter) {
-    switch (filter) {
+  filter(items) {
+    switch (this.filter) {
       case 'all':
         return items
       case 'Active':
@@ -23,9 +26,11 @@ export default class App extends Component {
         return items
     }
   }
+
   onFilterChange = filter => {
     this.setState({ filter })
   }
+
   createTodoItem(label) {
     return {
       label,
@@ -34,6 +39,7 @@ export default class App extends Component {
       date: new Date(),
     }
   }
+
   componentDidMount() {
     this.timeID = setInterval(() => this.tick(), 1000)
   }
@@ -41,6 +47,7 @@ export default class App extends Component {
   componentWillUnmount() {
     clearInterval(this.timeID)
   }
+
   tick = () => {
     this.setState({
       date: new Date(),
@@ -55,6 +62,7 @@ export default class App extends Component {
       }
     })
   }
+
   deletedList = () => {
     this.setState(({ todoData }) => ({ todoData: todoData.filter(item => !item.done) }))
   }
@@ -65,9 +73,8 @@ export default class App extends Component {
 
     this.setState(({ todoData }) => {
       if (!textTrimmed) {
-        return
+        return ''
       }
-
       return {
         todoData: [...todoData, newItem],
       }

@@ -1,22 +1,25 @@
-import { Component } from "react";
-import "./index.css";
+import { Component } from 'react'
+import './index.css'
 
 export default class NewTaskForm extends Component {
   state = {
-    label: "",
-  };
-  onLabelChange = (e) => {
+    label: '',
+  }
+
+  onLabelChange = e => {
     this.setState({
       label: e.target.value,
-    });
-  };
-  onSubmit = (e) => {
-    e.preventDefault();
-    this.props.onItemAdded(this.state.label);
+    })
+  }
+
+  onSubmit = e => {
+    e.preventDefault()
+    this.props.onItemAdded(this.state.label)
     this.setState({
-      label: "",
-    });
-  };
+      label: '',
+    })
+  }
+
   render() {
     return (
       <form className="header" onSubmit={this.onSubmit}>
@@ -30,6 +33,6 @@ export default class NewTaskForm extends Component {
           />
         </label>
       </form>
-    );
+    )
   }
 }
