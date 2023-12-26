@@ -4,6 +4,7 @@ import { formatDistanceToNow } from 'date-fns'
 export default class Task extends Component {
   render() {
     const { label, onDeleted, onToggleDone, done, id, date } = this.props
+
     let className = ''
     if (done) {
       className += 'completed'
@@ -23,4 +24,9 @@ export default class Task extends Component {
       </li>
     )
   }
+}
+
+Task.defaultProps = {
+  onDeleted: () => {},
+  onToggleDone: () => {},
 }
