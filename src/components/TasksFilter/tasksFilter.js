@@ -12,11 +12,11 @@ export default class TasksFilter extends Component {
 
     const buttons = this.buttons.map(({ name, label }) => {
       const isActive = filter === name
-      const clazz = isActive ? 'selected' : ''
+      const selectedClass = isActive ? 'selected' : ''
 
       return (
         <li key={name}>
-          <button type="button" onClick={() => onFilterChange(name)} className={clazz}>
+          <button type="button" onClick={() => onFilterChange(name)} className={selectedClass}>
             {label}
           </button>
         </li>
