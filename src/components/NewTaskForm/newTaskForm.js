@@ -2,6 +2,10 @@ import { Component } from 'react'
 import './index.css'
 
 export default class NewTaskForm extends Component {
+  static defaultProps = {
+    onItemAdded: () => {},
+  }
+
   state = {
     label: '',
   }

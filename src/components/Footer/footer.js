@@ -1,8 +1,23 @@
 import { Component } from 'react'
+import PropTypes from 'prop-types'
 
 import TasksFilter from '../TasksFilter/tasksFilter'
 
 export default class Footer extends Component {
+  static defaultProps = {
+    onFilterChange: () => {},
+    delList: () => {},
+    filter: () => {},
+    doneCount: 0,
+  }
+
+  static PropTypes = {
+    doneCount: PropTypes.object,
+    delList: PropTypes.function,
+    filter: PropTypes.string,
+    onFilterChange: PropTypes.function,
+  }
+
   render() {
     const { doneCount, delList, filter, onFilterChange } = this.props
     const count = doneCount.filter(el => !el.done).length
@@ -17,10 +32,4 @@ export default class Footer extends Component {
       </footer>
     )
   }
-}
-
-Footer.defaultProps = {
-  onFilterChange: () => {},
-  delList: () => {},
-  doneCount: 0,
 }

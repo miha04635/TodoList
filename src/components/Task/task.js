@@ -1,7 +1,26 @@
 import { Component } from 'react'
 import { formatDistanceToNow } from 'date-fns'
+import PropTypes from 'prop-types'
 
 export default class Task extends Component {
+  static defaultProps = {
+    onDeleted: () => {},
+    onToggleDone: () => {},
+    label: '',
+    done: '',
+    id: '',
+    date: new Date(),
+  }
+
+  static PropTypes = {
+    label: PropTypes.string,
+    onDeleted: PropTypes.function,
+    onToggleDone: PropTypes.function,
+    done: PropTypes.boolean,
+    id: PropTypes.number,
+    date: PropTypes.object,
+  }
+
   render() {
     const { label, onDeleted, onToggleDone, done, id, date } = this.props
 
@@ -24,9 +43,4 @@ export default class Task extends Component {
       </li>
     )
   }
-}
-
-Task.defaultProps = {
-  onDeleted: () => {},
-  onToggleDone: () => {},
 }
