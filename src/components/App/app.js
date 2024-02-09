@@ -97,14 +97,18 @@ export default class App extends Component {
 
     const visibleItems = this.filter(todoData, filter)
     return (
-      <div className="todoapp">
+      <>
+      <section className="todoapp">
         <header className="header">
           <h1>todos</h1>
           <NewTaskForm onItemAdded={this.addItem} />
         </header>
+      <section className='main'>
         <TaskList todos={visibleItems} onDeleted={this.deletedItem} onToggleDone={this.onToggleDone} />
         <Footer filter={filter} onFilterChange={this.onFilterChange} doneCount={todoData} delList={this.deletedList} />
-      </div>
+      </section>
+      </section>  
+      </>
     )
   }
 }
